@@ -4,11 +4,12 @@ import card from './img_cats/3.jpg';
 
 
 
-const Card = () => {
+const Card = ({like}) => {
     return (
         <div className="card">
-            <img alt="Котик" src={card}
-            className="card__img"/>
+            <div className='card__img'>200x300px</div>
+            <div className='card__text'>Lorem ipsum dolor </div>
+            <div className='card__like'>{like}</div>
         </div>
     )
 }
