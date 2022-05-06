@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
 import './index.css';
-import Card from '../Card'
+
 
 
 const Main = () => {
     return (
-       <div className='cards-container'>
-
-       </div>
+        <div className="container">
+             <h1>Главная страница</h1>
+        </div>
     )
+   
 }
 
 export default Main;

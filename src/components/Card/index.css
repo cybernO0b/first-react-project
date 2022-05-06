@@ -1,13 +1,18 @@
 .card {
     padding: 20px;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 18px;
+    font-weight: 900;
     
 }
 .card__img {
-    width: 101px;
-    height: 101px;
-    background-color: black;
+    width: 222px;
+    height: 150px;
+    background-color: rgb(148, 82, 82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
