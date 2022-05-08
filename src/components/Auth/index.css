@@ -1,0 +1,5 @@
+form.auth {
+    background-color: aqua;
+    padding: 50px calc(50% - 130px);
+
+}
