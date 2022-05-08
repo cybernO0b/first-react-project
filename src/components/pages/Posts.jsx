@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom'
 
+
 // Получение постов с сервера
 const Posts = () => {
 
@@ -30,26 +31,42 @@ const Posts = () => {
     }
 // Стилизация картинки в посте
     const imgst = {
-        height: "150px",
-        width: "100px",
-        backgroundSize: "contain"
+        
+        width: "100%", /* Ширина изображений */
+ height: "300px", /* Высота изображении */
+ objectFit: "contain"
+
+        
+       
     }
 
     return (
         <>
         <h1 style={stH1}>Posts</h1>
-       <div className='cards-container'>
-          
-        {/* Добавление названия с картинкой постов с сервера */}
-        {posts.map((post, i) => 
-        <Link to={"/post/" + post._id}>
-        <div key={i} className="post">
-            {post.title}
-            <img style={imgst}src={post.image}/>
+
+        <div className="first-container">
+            Доброго времени суток. На этой странице отображены все посты учащихся.
         </div>
-        </Link>
+
+        <div className='cards-container'>
+            {posts.map((post, i) => 
+            <div className="cards-one">
+            <Link to={"/post/" + post._id}>
+                
+
+            <div key={i} className="post__title">
+                    {post.title}
+                </div>
+                <div className="post__image">
+                    <img style={imgst} src={post.image}/>
+                </div>
+                <div className="post__text">
+                    {post.text}
+                </div>
+                
+            </Link>
+            </div>
         )}
-        
        </div>
        </>
     )

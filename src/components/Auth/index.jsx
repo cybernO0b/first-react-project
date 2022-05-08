@@ -30,7 +30,7 @@ export default ({login}) => {
 
     }
     return (
-        <div>
+        <div className='container__auth'>
         <h1>{login ? "Вход" : "Регистрация"}</h1>
             <form className='auth' onSubmit={handler}>
                  <input type="email" placeholder="email" name="email" value={val}

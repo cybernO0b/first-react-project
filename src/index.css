@@ -7,29 +7,101 @@ html {
 	box-sizing: border-box;
 }
 body {
-	font-family: "Nunito", "Arial", "Helvetica", sans-serif;
+	font-family: Comic Sans MS;
+	background-color: #b0e0e6;
+	
+}
+a {
+	text-decoration:none;
+	font-family:  "Comic Sans MS";
+	color: black;
+	font-weight: 700;
+  }
+
+.cards-container {
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+	text-align: center;
 }
 
+.first-container {
 
+	display: flex;
+	border: 5px solid rgba(120, 168, 184, 0.321);
+	font-family: Comic Sans MS;
+	font-size: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	height: 300px;
+	justify-content: center;
+	align-items: center;
+}
 
 .post {
 	padding: 20px;
-	grid-template-columns: 200px (3, 1fr);
-	border: 5px solid;
-	border-color: red;
+	grid-template-columns: 400px (3, 1fr);
+	border: 5px solid red;
+	background-color: black;
+	
 	height: 300px;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	background-position: center;
 }
 
 .solo__post {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50%;
+	width: 1000px;
 	height: 300px;
 	border: 5px solid;
+	padding: 100px;
 }
+
+.post__image {
+	
+	
+		width: 100%; 
+		height: 400px;
+		margin: 0;
+		text-align: center;
+	
+}
+
+.post__text {
+
+}
+
+.post__title {
+	padding: 5% 0%;
+	
+}
+.cards-one {
+	border: 5px solid rgba(213, 198, 177, 0.699);
+	background-color: blanchedalmond;
+}
+
+.container__post {
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 100%;
+	height: 81vh;
+	text-align: center;
+}
+
+h1 {
+	padding-top: 20px;
+}
+
 
 

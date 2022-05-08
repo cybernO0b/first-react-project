@@ -1,3 +1,5 @@
+import Posts from './components/pages/Posts'
+
 const responseHandler = res => {
     return res.ok ? res.json() : res.statusText
 }
@@ -29,9 +31,10 @@ class Api {
 
 const config = {
     path: "https://api.react-learning.ru",
-    token: ""
+    token: localStorage.getItem("token")
 }
 
 const api = new Api(config);
 
 export default api;
+

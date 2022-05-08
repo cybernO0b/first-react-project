@@ -8,9 +8,11 @@ const Post = () => {
 
     return (
         <>
-        <div className='solo__post'>
+        <div className='container__post'>
+            <div className='solo__post'>
             <h1>{name}</h1>
             <p>{id}</p>
+            </div>
         </div>
         </>
     )
