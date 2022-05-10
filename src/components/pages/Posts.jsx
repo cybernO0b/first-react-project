@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from "react";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Modal from "../modale";
+import api from '../../Api'
+import { UserCtx } from '../UserContext'
+
 
 
 // Получение постов с сервера
 const Posts = () => {
-
+    const [modalActive, setModalActive] = useState()
     const [posts, getPosts] = useState([]);
 
     useEffect(() => {
@@ -46,6 +50,11 @@ const Posts = () => {
 
         <div className="first-container">
             Доброго времени суток. На этой странице отображены все посты учащихся.
+            <button className="open-btn" onClick={() => setModalActive(true)}>Создать пост</button>
+            <Modal active={modalActive} setActive={setModalActive}>
+            
+            <p>Модальное окошко</p>
+            </Modal>
         </div>
 
         <div className='cards-container'>

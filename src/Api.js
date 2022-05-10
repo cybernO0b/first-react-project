@@ -1,4 +1,3 @@
-import Posts from './components/pages/Posts'
 
 const responseHandler = res => {
     return res.ok ? res.json() : res.statusText
@@ -13,6 +12,7 @@ class Api {
         return fetch(`${this.path}/signup`, {
             method: 'post',
             headers: {
+                authorization: `Bearer ${this.token}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(body)
@@ -22,10 +22,27 @@ class Api {
         return fetch(`${this.path}/signin`, {
             method: 'post',
             headers: {
+                authorization: `Bearer ${this.token}`,
                 "Content-Type": "application/json"
+
             },
             body: JSON.stringify(body)
         }).then(responseHandler)
+    }
+    addpost(body) {
+        return fetch(`${this.path}/posts`, {
+            method: 'post',
+            headers: {
+                authorization: `Bearer ${this.token}`,
+                "Content-Type": "application/json",
+                "title": "",
+                "text": "", 
+	            "image": "",
+                "tags": []
+            },
+             body: JSON.stringify(body)
+        }).then(responseHandler)
+        
     }
 }
 

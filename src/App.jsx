@@ -3,7 +3,7 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Header from './components/Header';
 import Home from './components/pages/Home';
 import Footer from './components/Footer';
-import Add from './components/pages/Add';
+import Addpost from './components/pages/Addpost';
 import Post from './components/pages/Post'
 import Posts from './components/pages/Posts'
 import Profile from './components/pages/Profile';
@@ -33,12 +33,12 @@ const App = () => {
         <Header/>
        <Routes>
            <Route path="/" element={<Home/>}/>
-           <Route path="/add" element={<Add/>}/> 
            <Route path="/posts" element={<Posts/>}/> 
            <Route path="/post/:id" element={<Post/>}/>
            <Route path="/signin" element={<Signin/>}/>
            <Route path="/signup" element={<Signup/>}/>
            <Route path="/profile" element={<Profile/>}/>
+           <Route path="/add" element={<Addpost/>}/>
        </Routes>
         <Footer/>
     </UserCtx.Provider>
