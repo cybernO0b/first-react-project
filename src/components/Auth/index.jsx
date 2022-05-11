@@ -8,7 +8,7 @@ import { UserCtx } from '../UserContext'
 export default ({login}) => {
     const [val, changeVal] = useState("")
     const [pwd, changePwd] = useState("")
-    const {setUser} = useContext(UserCtx)
+    const { setUser, setToken } = useContext(UserCtx)
     const navigation = useNavigate()
     const handler = (e) => {
         e.preventDefault();
@@ -17,6 +17,7 @@ export default ({login}) => {
                 console.log(ans)
                 if (ans.data) {
                     setUser(ans.data._id)
+                    setToken(ans.token)
                 } 
                 navigation("/")
             })

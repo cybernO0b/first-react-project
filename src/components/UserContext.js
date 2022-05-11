@@ -11,7 +11,6 @@ export const UserValue = {
     token: "",
     user: localStorage.getItem("user") || "",
     setUser: (id) => {
-        // this.user = id;
         localStorage.setItem("user", id);
     }
 }

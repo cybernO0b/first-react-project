@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from "react-router-dom"
+import Posts from './Posts'
+import api from '../../Api'
+import { PostCtx } from "../PostContext";
 
     
 const Post = () => {
     let {id} = useParams()
-    let {image} = useParams()
-    let {text} = useParams()
-    const [title, setTitle] = useState()
+    
+    const [posts, getPosts] = useState([]);
+    const [text, changeText] = useState();
+    const [title, changeTitle] = useState();
+    const [image, changeImage] = useState();
+    const [tags, changeTags] = useState([]);
+    
 
     return (
         <>
@@ -14,9 +21,6 @@ const Post = () => {
             <div className='solo__post'>
             <h1>{title}</h1>
             <p>{id}</p>
-            <div>{image}</div>
-            <div>{text}</div>
-
             </div>
         </div>
         </>

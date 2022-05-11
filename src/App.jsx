@@ -15,6 +15,13 @@ import { UserCtx, UserValue } from './components/UserContext';
 
 
 const App = () => {
+    // novoe
+const [modalActive, setModalActive] = useState()
+    const [posts, getPosts] = useState([]);
+
+   
+
+    // staroe
     const [user, setUser] = useState(localStorage.getItem("user") || "");
 
     const userHandler = (id) => {

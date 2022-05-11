@@ -8,6 +8,23 @@ class Api {
         this.path = path;
         this.token = token;
     }
+    
+    getPostList() {
+        return fetch(`${this.path}/posts`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        }).then(responseHandler);
+    }
+
+    getSinglePost(id) {
+        return fetch(`${this.path}/posts/${id}`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        }).then(responseHandler);
+    }
+    
     signup(body) {
         return fetch(`${this.path}/signup`, {
             method: 'post',
@@ -18,6 +35,7 @@ class Api {
             body: JSON.stringify(body)
         }).then(responseHandler)
     }
+
     login(body) {
         return fetch(`${this.path}/signin`, {
             method: 'post',
@@ -29,16 +47,13 @@ class Api {
             body: JSON.stringify(body)
         }).then(responseHandler)
     }
+
     addpost(body) {
         return fetch(`${this.path}/posts`, {
             method: 'post',
             headers: {
                 authorization: `Bearer ${this.token}`,
                 "Content-Type": "application/json",
-                "title": "",
-                "text": "", 
-	            "image": "",
-                "tags": []
             },
              body: JSON.stringify(body)
         }).then(responseHandler)
