@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Modal from "../modale";
-import api from '../../Api'
-import { UserCtx } from '../UserContext'
+
 
 
 
@@ -37,8 +36,8 @@ const Posts = () => {
     const imgst = {
         
         width: "100%", /* Ширина изображений */
- height: "300px", /* Высота изображении */
- objectFit: "contain"
+        height: "300px", /* Высота изображении */
+        objectFit: "contain"
 
         
        
@@ -49,7 +48,7 @@ const Posts = () => {
         <h1 style={stH1}>Posts</h1>
 
         <div className="first-container">
-            Доброго времени суток. На этой странице отображены все посты учащихся.
+            Доброго времени суток. На этой странице отображены все посты пользователей.
             <button className="open-btn" onClick={() => setModalActive(true)}>Создать пост</button>
             <Modal active={modalActive} setActive={setModalActive}>
             

@@ -9,7 +9,9 @@ export default () => {
     const st = {
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        paddingLeft: "20px",
+        paddingRight: "20px"
     }
     const logout = (e) => {
         localStorage.removeItem("user");

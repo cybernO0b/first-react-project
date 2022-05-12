@@ -6,21 +6,26 @@ import { PostCtx } from "../PostContext";
 
     
 const Post = () => {
-    let {id} = useParams()
+    let {id} = useParams();
     
-    const [posts, getPosts] = useState([]);
-    const [text, changeText] = useState();
-    const [title, changeTitle] = useState();
-    const [image, changeImage] = useState();
-    const [tags, changeTags] = useState([]);
+    
+    const [posts, setPosts] = useState([]);
+   
+    useEffect(() => {
+        api.getSinglePost(id).then(data => {
+            console.log(data);
+            setPosts(data);
+        })
+    })
     
 
     return (
         <>
         <div className='container__post'>
             <div className='solo__post'>
-            <h1>{title}</h1>
-            <p>{id}</p>
+            <p>{posts.title || "Post"}</p>
+            <p><img src={posts.image}/></p>
+            <p>{posts.text}</p>
             </div>
         </div>
         </>
