@@ -22,11 +22,11 @@ export default () => {
         <>
         <div style={st}>
             <h1>Личный кабинет</h1>
-            <span className='logout'
-            onClick={logout}>Выйти</span>
+            <button className='logout'
+            onClick={logout} >Выйти</button>
         </div>
         
-        <Auth/>
+        
         </>
     )
 }

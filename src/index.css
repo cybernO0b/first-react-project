@@ -31,11 +31,12 @@ a {
 	display: flex;
 	border: 5px solid rgba(120, 168, 184, 0.321);
 	font-family: Comic Sans MS;
-	font-size: 50px;
+	font-size: 40px;
+	
 	margin-bottom: 30px;
 	width: 100%;
 	height: 300px;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -121,6 +122,29 @@ input {
     outline: none;
     padding: 12px 20px;
     border-radius: 20px;
+}
+
+.page-container {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+
+}
+
+.page-container>div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid;
+	border-radius: 8px;
+	cursor: pointer;
+
+}
+
+.page-container>.active {
+	color: blueviolet
 }
 
 

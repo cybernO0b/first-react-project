@@ -1,14 +1,33 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Modal from "../modale";
+import { usePagination } from "../hooks";
 
 
 
 
 // Получение постов с сервера
 const Posts = () => {
+    
+
+
     const [modalActive, setModalActive] = useState()
     const [posts, getPosts] = useState([]);
+    const _data = usePagination(posts, 12);
+    const [page, setPage] = useState(1)
+    
+    function setPagination(n) {
+        let arr = []
+        for (let i=0; i<n; i++) {
+            arr.push(<div
+                 className={(i+1) === page &&
+                     "active"}
+                      onClick={() => {setPage(i+1); _data.jump(i+1)}}>
+                          {i+1}</div>)
+        }
+        return arr;
+    }
+    
 
     useEffect(() => {
         let token = localStorage.getItem("token");
@@ -35,20 +54,25 @@ const Posts = () => {
 // Стилизация картинки в посте
     const imgst = {
         
-        width: "100%", /* Ширина изображений */
-        height: "300px", /* Высота изображении */
+        width: "100%", 
+        height: "300px", 
         objectFit: "contain"
-
-        
-       
     }
+    const stPaginationDown = {
+        padding: "20px 0px"
+    }
+       
+    
 
     return (
         <>
         <h1 style={stH1}>Posts</h1>
-
+        <div className="page-container">
+            {setPagination(_data.maxPage)}
+        </div>
+        <h2 style={stH1}>Страница {page}</h2>
         <div className="first-container">
-            Доброго времени суток. На этой странице отображены все посты пользователей.
+            Доброго времени суток. <br/>На этой странице отображены все посты пользователей.
             <button className="open-btn" onClick={() => setModalActive(true)}>Создать пост</button>
             <Modal active={modalActive} setActive={setModalActive}>
             
@@ -57,7 +81,7 @@ const Posts = () => {
         </div>
 
         <div className='cards-container'>
-            {posts.map((post, i) => 
+            {_data.current().map((post, i) => 
             <div className="cards-one">
             <Link to={"/post/" + post._id}>
                 
@@ -76,6 +100,9 @@ const Posts = () => {
             </div>
         )}
        </div>
+       <div style={stPaginationDown} className="page-container">
+            {setPagination(_data.maxPage)}
+        </div>
        </>
     )
 }
