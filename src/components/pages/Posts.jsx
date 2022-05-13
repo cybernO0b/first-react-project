@@ -1,19 +1,35 @@
 import React, {useState, useEffect} from "react";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Modal from "../modale";
 import { usePagination } from "../hooks";
+import api from '../../Api'
+import Addpost from "./Addpost";
 
 
 
 
 // Получение постов с сервера
-const Posts = () => {
+const Posts = (addpost) => {
     
+// Добавление поста
+const [textq, changeText] = useState("");
+const [titleq, changeTitle] = useState("");
+const [imageq, changeImage] = useState("");
+const [tagsq, changeTags] = useState("");
 
+const navigation = useNavigate()
+
+const handler = (e) => {
+    e.preventDefault();
+    
+        api.addpost({title: titleq, image: imageq, text: textq, tags: [tagsq]}).then(ans => {
+                navigation("/posts")
+        })
+}
 
     const [modalActive, setModalActive] = useState()
     const [posts, getPosts] = useState([]);
-    const _data = usePagination(posts, 12);
+    const _data = usePagination(posts, 15);
     const [page, setPage] = useState(1)
     
     function setPagination(n) {
@@ -76,7 +92,27 @@ const Posts = () => {
             <button className="open-btn" onClick={() => setModalActive(true)}>Создать пост</button>
             <Modal active={modalActive} setActive={setModalActive}>
             
-            <p>Модальное окошко</p>
+            <div className='container'>
+            <h1>Добавить пост</h1>
+            <form action={addpost} className='add__post' onSubmit={handler}>
+                 <input type="text" placeholder="title" name="title" value={titleq}
+                    required onInput={e => changeTitle(e.target.value)}/>
+
+                 <input type="text" placeholder="text" name='text' value={textq}
+                    required onInput={e => changeText(e.target.value)}/>
+
+                <input type="text" placeholder="image" name="image" value={imageq}
+                    required onInput={e => changeImage(e.target.value)}/>
+
+                 <input type="text" placeholder="tags" name="tags" value={tagsq}
+                    required onInput={e => changeTags(e.target.value)}/>
+
+                 <button type="submit" className="open-btn" onClick={() => setModalActive()} >Добавить пост</button>
+                 <Link to="/posts">
+                      <button type="button" className="open-btn" onClick={() => setModalActive()}>Перейти к постам</button>
+                      </Link>
+        </form>
+        </div>
             </Modal>
         </div>
 
@@ -106,5 +142,6 @@ const Posts = () => {
        </>
     )
 }
+
 
 export default Posts;

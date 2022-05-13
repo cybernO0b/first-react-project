@@ -21,8 +21,8 @@
 .modal__content {
     padding: 20px;
     border-radius: 12px;
-    background-color: white;
-    width: 50vw;
+    background-color: azure;
+    width: 100vw;
     transform: scale(0.5);
     transition: 0.4s all;
     

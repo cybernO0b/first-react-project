@@ -6,13 +6,7 @@ import Auth from '../Auth'
 export default () => {
     const navigate = useNavigate();
     // const {setToken, setUser} = useContext(UserCtx);
-    const st = {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingLeft: "20px",
-        paddingRight: "20px"
-    }
+    
     const logout = (e) => {
         localStorage.removeItem("user");
         localStorage.removeItem("token");
@@ -20,10 +14,13 @@ export default () => {
     }
     return (
         <>
-        <div style={st}>
+        <div className='container'>
+        <div className='container-cabinet'>
             <h1>Личный кабинет</h1>
-            <button className='logout'
-            onClick={logout} >Выйти</button>
+            
+            <h1><button className='logout'
+            onClick={logout} >Выйти</button></h1>
+            </div>
         </div>
         
         

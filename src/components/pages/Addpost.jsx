@@ -12,13 +12,6 @@ export default ({addpost}) => {
     const [imageq, changeImage] = useState("");
     const [tagsq, changeTags] = useState("");
 
-    
-
-    
-
-    // const {setText, setTitle, setImage, setTags} = useContext(PostCtx);
-   
-
     const navigation = useNavigate()
 
     const handler = (e) => {
@@ -46,9 +39,9 @@ export default ({addpost}) => {
                  <input type="text" placeholder="tags" name="tags" value={tagsq}
                     required onInput={e => changeTags(e.target.value)}/>
 
-                 <button type="submit">Войти</button>
-                 <Link to="/">
-                      <button type="button">На главную</button>
+                 <button type="submit">Добавить пост</button>
+                 <Link to="/posts">
+                      <button type="button">Перейти к постам</button>
                       </Link>
         </form>
         </div>
