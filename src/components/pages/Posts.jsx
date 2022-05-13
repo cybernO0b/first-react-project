@@ -29,7 +29,7 @@ const handler = (e) => {
 
     const [modalActive, setModalActive] = useState()
     const [posts, getPosts] = useState([]);
-    const _data = usePagination(posts, 15);
+    const _data = usePagination(posts, 12);
     const [page, setPage] = useState(1)
     
     function setPagination(n) {
