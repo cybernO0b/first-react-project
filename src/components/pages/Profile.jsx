@@ -14,9 +14,11 @@ export default () => {
     }
     return (
         <>
-        <div className='container'>
-        <div className='container-cabinet'>
+         <div className='container'>
+        <div className='container-cabinet' style={st}>
             <h1>Личный кабинет</h1>
+            </div>
+            <div className='container-cabinet' style={st}>
             
             <h1><button className='logout'
             onClick={logout} >Выйти</button></h1>

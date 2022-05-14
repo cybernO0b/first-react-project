@@ -34,12 +34,12 @@ const Form = ({ post, editPostHandler, submitPostHandler, isEdit }) => {
 
   return (
     <div className='container'>
-      <h1>{isEdit ? 'Отредактировать пост' : 'Добавить пост'}</h1>
+      <h1>Добавление поста</h1>
       <form className='add__post' onSubmit={(evt) => submitHandler(evt)}>
         <input type="text" placeholder="title" name="title" value={formData.title}
           required onInput={evt => handleChange(evt)} />
 
-        <input type="text" placeholder="text" name='text' value={formData.text}
+        <input type="textarea" placeholder="text" name='text' value={formData.text}
           required onInput={evt => handleChange(evt)} />
 
         <input type="text" placeholder="image" name="image" value={formData.image}
@@ -50,7 +50,7 @@ const Form = ({ post, editPostHandler, submitPostHandler, isEdit }) => {
 
 
 
-        <button type="submit">{isEdit ? 'Отправить' : 'Войти'}</button>
+        <button type="submit">Добавить пост</button>
         <Link to="/">
           <button type="button">На главную</button>
         </Link>
