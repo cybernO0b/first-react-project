@@ -4,11 +4,11 @@ const responseHandler = res => {
 }
 
 class Api {
-    constructor({path, token}) {
+    constructor({ path, token }) {
         this.path = path;
         this.token = token;
     }
-    
+
     getPostList() {
         return fetch(`${this.path}/posts`, {
             headers: {
@@ -24,7 +24,7 @@ class Api {
             }
         }).then(responseHandler);
     }
-    
+
     signup(body) {
         return fetch(`${this.path}/signup`, {
             method: 'post',
@@ -49,15 +49,28 @@ class Api {
     }
 
     addpost(body) {
+        console.log('req: ', body);
         return fetch(`${this.path}/posts`, {
             method: 'post',
             headers: {
                 authorization: `Bearer ${this.token}`,
                 "Content-Type": "application/json",
             },
-             body: JSON.stringify(body)
+            body: JSON.stringify(body)
         }).then(responseHandler)
-        
+
+    }
+
+    // Denis
+    // Ф-я удаления поста
+
+    removepost(id) {
+        return fetch(`${this.path}/posts/${id}`, {
+            method: 'delete',
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        }).then(responseHandler);
     }
 }
 
@@ -69,4 +82,3 @@ const config = {
 const api = new Api(config);
 
 export default api;
-
