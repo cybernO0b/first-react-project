@@ -10,7 +10,7 @@ const Header = () => {
     
     return (
         <header>
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
                 <Link to="/add">Add post</Link>
                 <Link to="/posts">Posts</Link>
                 <Link to={user ? "/profile" : "/signin"}>Sign in</Link>

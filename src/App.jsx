@@ -33,7 +33,8 @@ const App = () => {
     <UserCtx.Provider value={{token: token, user: user, setToken: tokenHandler, setUser: userHandler}}>
         <Header/>
        <Routes>
-           <Route path="/" element={<Home/>}/>
+           <Route path="/" element={<Posts/>}/>
+           <Route path="/home" element={<Home/>}/> 
            <Route path="/posts" element={<Posts/>}/> 
            <Route path="/post/:id" element={<Post/>}/>
            <Route path="/signin" element={<Signin/>}/>
